@@ -15,7 +15,7 @@ Adafruit_PN532 nfc(PN532_IRQ, 100);
  
 void setup(void)
 {
-  Serial.begin(9600);
+  Serial.begin(19200);
   // инициализация RFID/NFC сканера
   nfc.begin();
   int versiondata = nfc.getFirmwareVersion();
@@ -28,7 +28,7 @@ void setup(void)
   Serial.println("Reader connected");
   // настраиваем модуль
   nfc.SAMConfig();
-  Serial.println("wait");
+  //Serial.println("wait");
 }
  
 void loop(void)
@@ -49,7 +49,6 @@ void loop(void)
     //Serial.println(" bytes");
     //Serial.print("ID Value: ");
     nfc.PrintHex(uid, uidLength);
-    Serial.println("");
-    delay(1000);
+    delay(100);
   }
 }
